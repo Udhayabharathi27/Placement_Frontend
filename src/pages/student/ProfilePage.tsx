@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { User, Mail, Phone, MapPin, Upload, Save, FileText, Check } from 'lucide-react';
-import { studentAPI } from '../../lib/api';
+import { studentAPI, getMediaUrl } from '../../lib/api';
 
 interface ProfileData {
     firstName: string;
@@ -213,7 +213,7 @@ export const ProfilePage: React.FC = () => {
                                     <div className="flex-1 min-w-0">
                                         <p className="text-sm font-medium text-green-900 truncate">Resume uploaded</p>
                                         <a
-                                            href={`http://localhost:5000${profile.resumeUrl}`}
+                                            href={getMediaUrl(profile.resumeUrl)}
                                             target="_blank"
                                             rel="noopener noreferrer"
                                             className="text-xs text-green-700 hover:underline flex items-center gap-1 mt-0.5"

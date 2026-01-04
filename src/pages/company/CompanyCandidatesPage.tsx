@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { Mail, CheckCircle2, XCircle, User, Briefcase, Calendar, FileText } from 'lucide-react';
-import { applicationAPI } from '../../lib/api';
+import { applicationAPI, getMediaUrl } from '../../lib/api';
 
 interface Application {
     id: string;
@@ -150,7 +150,7 @@ export const CompanyCandidatesPage: React.FC = () => {
                                             {application.student.resumeUrl && (
                                                 <div className="mt-2">
                                                     <a
-                                                        href={`http://localhost:5000${application.student.resumeUrl}`}
+                                                        href={getMediaUrl(application.student.resumeUrl)}
                                                         target="_blank"
                                                         rel="noopener noreferrer"
                                                         className="inline-flex items-center gap-1.5 px-3 py-1 bg-primary/10 text-primary text-xs font-semibold rounded-md hover:bg-primary/20 transition-colors"
